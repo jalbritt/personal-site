@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on jalbritt.site</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://jalbritt.site/posts/</link>
     <description>Recent content in Posts on jalbritt.site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 13 Mar 2024 16:52:48 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jalbritt.site/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quickly build and deploy a site with Hugo and Cloudflare Pages</title>
-      <link>http://localhost:1313/posts/hugo-cloudflare-site/</link>
+      <link>https://jalbritt.site/posts/hugo-cloudflare-site/</link>
       <pubDate>Wed, 13 Mar 2024 16:52:48 -0500</pubDate>
-      <guid>http://localhost:1313/posts/hugo-cloudflare-site/</guid>
+      <guid>https://jalbritt.site/posts/hugo-cloudflare-site/</guid>
       <description>It&amp;rsquo;s free, fast, and easy to manage: three reasons why I decided to deploy this Hugo site using Cloudflare pages. Hugo is a static site generator and content management system that allows users to write content in markdown. Cloudflare pages is a free static site hosting service that ensures your site loads quickly from anywhere in the world.
 Step 1: Hugo Quickstart Step 2: Deploy a Hugo Site Those are the steps!</description>
     </item>
     <item>
       <title>Managing Infrastructure as Code with Terraform</title>
-      <link>http://localhost:1313/posts/infrastructure-as-code/</link>
+      <link>https://jalbritt.site/posts/infrastructure-as-code/</link>
       <pubDate>Wed, 13 Mar 2024 16:26:09 -0500</pubDate>
-      <guid>http://localhost:1313/posts/infrastructure-as-code/</guid>
+      <guid>https://jalbritt.site/posts/infrastructure-as-code/</guid>
       <description>Having infrastructure as code (IaC) means we can better manage software infrastructure components throughout their lifecycles. Terraform provides a way to responsibly manage infrastucture state at scale and has achieved mass adoption in industry as an open-source project. You can tell terraform what exactly you would like to create, and terraform gives you a plan showing the configuration changes that will happen upon approval. Here&amp;rsquo;s an example of some terraform code that could be used to create a storage bucket in Google Cloud Platform.</description>
     </item>
   </channel>
