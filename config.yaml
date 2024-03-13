@@ -1,0 +1,36 @@
+baseURL: https://jalbritt.site/
+languageCode: en-us
+title: jalbritt.site
+theme: ["PaperMod"]
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    highlightInTable: true
+    lineNos: true
+    noClasses: false
+    style: "github"
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  ShowCodeCopyButtons: true
+  disableSpecial1stPost: true
+  ShowReadingTime: true
+  assets:
+    favicon: "images/favicon.ico"
+
+menu:
+  main:
+    - identifier: posts
+      name: posts
+      url: /posts/
+      weight: 10
+    - identifier: about
+      name: about
+      url: /about/
+      weight: 20
+

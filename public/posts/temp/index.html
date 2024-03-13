@@ -1,0 +1,137 @@
+<!doctype html><html lang=en dir=auto><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="noindex, nofollow"><title>Temp | jalbritt.site</title>
+<meta name=keywords content><meta name=description content="Having infrastructure as code (IaC) means we can better manage software infrastructure components throughout their lifecycles. Terraform provides a way to responsibly manage infrastucture state at scale and has achieved mass adoption in industry as an open-source project. You can tell terraform what exactly you would like to create, and terraform gives you a plan showing the configuration changes that will happen upon approval. Here&rsquo;s an example of some terraform code that could be used to create a storage bucket in Google Cloud Platform."><meta name=author content><link rel=canonical href=http://localhost:1313/posts/temp/><link crossorigin=anonymous href=/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z+V9+cO1A=" rel="preload stylesheet" as=style><link rel=icon href=http://localhost:1313/images/ja.png><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/favicon-32x32.png><link rel=apple-touch-icon href=http://localhost:1313/apple-touch-icon.png><link rel=mask-icon href=http://localhost:1313/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=http://localhost:1313/posts/temp/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=http://localhost:1313/ accesskey=h title="jalbritt.site (Alt + H)">jalbritt.site</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=http://localhost:1313/posts/ title=posts><span>posts</span></a></li><li><a href=http://localhost:1313/about/ title=about><span>about</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">Temp</h1><div class=post-meta><span title='2024-03-13 16:26:09 -0500 CDT'>March 13, 2024</span>&nbsp;·&nbsp;4 min</div></header><div class=post-content><p>Having infrastructure as code (IaC) means we can better manage software infrastructure components throughout their lifecycles. Terraform provides a way to responsibly manage infrastucture state at scale and has achieved mass adoption in industry as an open-source project. You can tell terraform what exactly you would like to create, and terraform gives you a plan showing the configuration changes that will happen upon approval. Here&rsquo;s an example of some terraform code that could be used to create a storage bucket in Google Cloud Platform.</p><pre tabindex=0><code>provider &#34;google&#34; {
+  credentials = &#34;google_credentials.json&#34;
+  project     = &#34;example-project&#34;
+}
+
+resource &#34;google_storage_bucket&#34; &#34;example&#34; {
+  name          = &#34;example-storage-bucket-1234&#34;
+  location      = &#34;US&#34;
+  force_destroy = true
+
+  public_access_prevention = &#34;enforced&#34;
+}
+</code></pre><p>If we make a file <code>bucket.tf</code> with the above code and place it in the same directory as our keyfile, then we can run <code>terraform init</code> and then <code>terraform plan</code> to get the following output.</p><pre tabindex=0><code>Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # google_storage_bucket.example will be created
+  + resource &#34;google_storage_bucket&#34; &#34;example&#34; {
+      + effective_labels            = (known after apply)
+      + force_destroy               = true
+      + id                          = (known after apply)
+      + location                    = &#34;US&#34;
+      + name                        = &#34;example-storage-bucket-1234&#34;
+      + project                     = (known after apply)
+      + public_access_prevention    = &#34;enforced&#34;
+      + rpo                         = (known after apply)
+      + self_link                   = (known after apply)
+      + storage_class               = &#34;STANDARD&#34;
+      + terraform_labels            = (known after apply)
+      + uniform_bucket_level_access = (known after apply)
+      + url                         = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+</code></pre><p>Running <code>terraform apply</code> at this point would apply the changes in the plan and create a single private storage bucket in Google Cloud. Running the <code>terraform destroy</code> command from the same directory will delete the bucket.</p><p>In an organization having multiple developers and lots more infrastructure in terraform, things are organized roughly as follows. Terraform code will be stored in a git repository like github where developers can publish new code, re-use existing code, and review code changes. Any proposed change automatically runs the <code>terraform plan</code> command and attaches the output to the proposal&ndash;making it easy for reviewers to see what will be added, changed, or destroyed according to the plan.</p><p>Here is an example using GitHub Actions. The folder structure looks something like this:</p><pre tabindex=0><code>.
+├── .github/
+│   └── workflows/
+│       ├── tfplan.yaml
+│       └── tfapply.yaml
+└── terraform/
+    ├── bucket.tf
+    ├── variables.tf
+    ├── backend.tf
+    ├── provider.tf
+    └── terraform.tfvars
+</code></pre><p>Workflow #1: Generate the plan and post it as a comment to the pull request. Our credentials are now stored in GitHub environment variables for the repository.</p><pre tabindex=0><code>name: Terraform Plan
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    env:
+      GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+    steps:
+      - name: Checkout code // Get the latest changes
+        uses: actions/checkout@v2
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.0
+
+      - name: Terraform Init
+        run: |
+          cd terraform          
+          terraform init -reconfigure
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          cd terraform
+          terraform plan -no-color -out=tfstate // Generate plan
+          terraform show tfstate // Output plan
+
+      - name: Post Plan Output to PR
+        if: ${{ github.event_name == &#39;pull_request&#39; }}
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const plan_output = `${{ steps.plan.outputs.stdout }}`
+            .replace(/\u001b\[.*?m/g, &#39;&#39;); // Remove ANSI escape codes
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: &#39;```&#39; + plan_output + &#39;```&#39;
+            });
+</code></pre><p>Workflow #2: Regenerate a plan (in case other PRs have merged in the meantime) and execute.</p><pre tabindex=0><code>name: Terraform Apply
+
+on:
+  pull_request:
+    types:
+      - closed // PR is closed
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true // PR is merged
+    env:
+      GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.0
+
+      - name: Terraform Init
+        run: |
+          cd terraform       
+          terraform init
+
+      - name: Terraform Plan
+        id: plan
+        run: |
+          cd terraform
+          terraform plan
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+</code></pre><p>Running these plans without configuring proper permissions and integrations in GitHub will result in an error like &ldquo;resource not available for integration.&rdquo; To set up the app, go to <a href=https://github.com/settings/apps>https://github.com/settings/apps</a> and create a new app with the repository link as the Homepage URL and read/write permissions on issues, discussions, and pull requests.</p></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span>&copy; 2024 <a href=http://localhost:1313/>jalbritt.site</a></span>
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
