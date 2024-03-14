@@ -4,7 +4,7 @@ date = 2024-03-13T16:26:09-05:00
 draft = false
 +++
 
-Having infrastructure as code (IaC) means we can better manage software infrastructure components throughout their lifecycles. Terraform provides a way to responsibly manage infrastucture state at scale and has achieved mass adoption in industry as an open-source project. You can tell terraform what exactly you would like to create, and terraform gives you a plan showing the configuration changes that will happen upon approval. Here's an example of some terraform code that could be used to create a storage bucket in Google Cloud Platform.
+Having infrastructure as code (IaC) means we can better manage software infrastructure components throughout their lifecycles. Terraform provides a way to responsibly manage infrastructure state at scale and has achieved mass adoption in industry as an open-source project. You can tell terraform what exactly you would like to create, and terraform gives you a plan showing the configuration changes that will happen upon approval. Here's an example of some terraform code that could be used to create a storage bucket in Google Cloud Platform.
 
 ```
 provider "google" {
