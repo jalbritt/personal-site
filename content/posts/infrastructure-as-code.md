@@ -52,7 +52,7 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 Running `terraform apply` at this point would apply the changes in the plan and create a single private storage bucket in Google Cloud. Running the `terraform destroy` command from the same directory will delete the bucket. 
 
-In an organization having multiple developers and lots more infrastructure in terraform, things are organized roughly as follows. Terraform code will be stored in a git repository like github where developers can publish new code, re-use existing code, and review code changes. Any proposed change automatically runs the `terraform plan` command and attaches the output to the proposal--making it easy for reviewers to see what will be added, changed, or destroyed according to the plan.
+In an organization having multiple developers and lots more infrastructure in terraform, things are organized roughly as follows. Terraform code will be stored in a git repository like GitHub where developers can publish new code, re-use existing code, and review code changes. Any proposed change automatically runs the `terraform plan` command and attaches the output to the proposal--making it easy for reviewers to see what will be added, changed, or destroyed according to the plan.
 
 Here is an example using GitHub Actions. The folder structure looks something like this:
 
