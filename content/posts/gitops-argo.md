@@ -1,7 +1,7 @@
 +++
 title = 'GitOps with ArgoCD'
 date = 2024-03-20T12:20:11-05:00
-draft = false
+draft = true
 +++
 
 With ArgoCD, we can make sure that the state of our kubernetes apps match their desired configurations as defined by code in GitHub. When changes happen in GitHub, ArgoCD will automatically deploy them to the cluster. Taking this apporoach guarantees that any manual changes to the cluster are overwritten by the configuration defined in GitHub. 

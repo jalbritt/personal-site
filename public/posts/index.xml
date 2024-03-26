@@ -6,16 +6,8 @@
     <description>Recent content in Posts on jalbritt.site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 20 Mar 2024 12:20:11 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 13 Mar 2024 16:52:48 -0500</lastBuildDate>
     <atom:link href="https://jalbritt.site/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GitOps with ArgoCD</title>
-      <link>https://jalbritt.site/posts/gitops-argo/</link>
-      <pubDate>Wed, 20 Mar 2024 12:20:11 -0500</pubDate>
-      <guid>https://jalbritt.site/posts/gitops-argo/</guid>
-      <description>With ArgoCD, we can make sure that the state of our kubernetes apps match their desired configurations as defined by code in GitHub. When changes happen in GitHub, ArgoCD will automatically deploy them to the cluster. Taking this apporoach guarantees that any manual changes to the cluster are overwritten by the configuration defined in GitHub.
-First, we need a kubernetes cluster to install ArgoCD. For this example, I created one using Terraform.</description>
-    </item>
     <item>
       <title>Quickly build and deploy a site with Hugo and Cloudflare Pages</title>
       <link>https://jalbritt.site/posts/hugo-cloudflare-site/</link>
