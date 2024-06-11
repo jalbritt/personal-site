@@ -20,5 +20,4 @@ Argo syncs a single repository.
 Argo 'bootstraps' multiple apps as part of the 'app of apps' pattern.
 - 
 # with the app of apps pattern, we can define multiple applications in a single repository. It goes something like this. First, we define an application which is responsible for deploying all other applications. This application is called the 'app of apps'. The 'app of apps' application is responsible for deploying all other applications. The next step is to define the applications which the 'app of apps' application will deploy. Each application is defined in a separate directory. Each application directory contains a kustomization.yaml file which defines the resources which should be deployed. The workflow is as follows. When a change is made to the 'app of apps' application, ArgoCD will deploy all other applications. When a change is made to an application, ArgoCD will deploy that application.
-
 # 

@@ -17,7 +17,7 @@
 Step 1: Hugo Quickstart Step 2: Deploy a Hugo Site Those are the steps!</description>
     </item>
     <item>
-      <title>Managing Infrastructure as Code with Terraform</title>
+      <title>Managing Infrastructure as Code with Terraform and GitHub Actions</title>
       <link>http://localhost:1313/posts/infrastructure-as-code/</link>
       <pubDate>Wed, 13 Mar 2024 16:26:09 -0500</pubDate>
       <guid>http://localhost:1313/posts/infrastructure-as-code/</guid>

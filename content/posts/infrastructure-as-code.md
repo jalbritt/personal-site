@@ -1,5 +1,5 @@
 +++
-title = 'Managing Infrastructure as Code with Terraform'
+title = 'Managing Infrastructure as Code with Terraform and GitHub Actions'
 date = 2024-03-13T16:26:09-05:00
 draft = false
 +++
