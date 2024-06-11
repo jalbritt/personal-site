@@ -1,5 +1,5 @@
 +++
-title = 'Managing Infrastructure as Code with Terraform'
+title = 'Managing Infrastructure as Code with Terraform and GitHub Actions'
 date = 2024-03-13T16:26:09-05:00
 draft = false
 +++
@@ -21,6 +21,7 @@ resource "google_storage_bucket" "example" {
 }
 ```
 
+# Plan and Apply
 If we make a file `bucket.tf` with the above code and place it in the same directory as our keyfile, then we can run `terraform init` and then `terraform plan` to get the following output.
 
 ```
@@ -52,6 +53,7 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 
 Running `terraform apply` at this point would apply the changes in the plan and create a single private storage bucket in Google Cloud. Running the `terraform destroy` command from the same directory will delete the bucket. 
 
+# Pipeline
 In an organization having multiple developers and lots more infrastructure in terraform, things are organized roughly as follows. Terraform code will be stored in a git repository like GitHub where developers can publish new code, re-use existing code, and review code changes. Any proposed change automatically runs the `terraform plan` command and attaches the output to the proposal--making it easy for reviewers to see what will be added, changed, or destroyed according to the plan.
 
 Here is an example using GitHub Actions. The folder structure looks something like this:
@@ -164,5 +166,6 @@ jobs:
         run: terraform apply -auto-approve
 ```
 
+# GitHub Configuration
 Running these plans without configuring proper permissions and integrations in GitHub will result in an error like "resource not available for integration." To set up the app, go to https://github.com/settings/apps and create a new app with the repository link as the Homepage URL and read/write permissions on issues, discussions, and pull requests.
 
